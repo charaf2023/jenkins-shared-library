@@ -4,5 +4,5 @@ import com.example.Docker
 
 def call() {
     echo "in call"
-    return new Docker(this).dockerLogin()
+//    return new Docker(this).dockerLogin()
 }
