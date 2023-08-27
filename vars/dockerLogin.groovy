@@ -3,6 +3,6 @@
 import com.example.Docker
 
 def call() {
-     sh 'in call'
+    echo "in call"
     return new Docker(this).dockerLogin()
 }
