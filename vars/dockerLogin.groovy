@@ -4,5 +4,5 @@ import com.example.Docker
 
 def call(String credentialsId,String repo) {
     if (!repo) repo=""
-    return new Docker(this).login(credentialsId,repo)
+    return new Docker(this).dockerLogin(credentialsId,repo)
 }
