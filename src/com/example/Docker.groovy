@@ -31,10 +31,10 @@ class Docker implements Serializable {
         script.sh "git config --global user.email \"charafeddine.toumi@inttic.dz\""
 //        script.sh "git remote set-url origin https://${script.USER}:/${script.USER}/${repo}.git"
 
-        script.sh "curl -u \"charaf2023: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\" https://github.com/charaf2023/devops.git\n"
+        script.sh "curl -u \"charaf2023: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\" https://github.com/charaf2023/devops.git\n"
         script.sh "git add ."
         script.sh "git commit -m 'ci:version bump'"
-        script.sh "git push -u origin jenkins-shared-lib"
+        script.sh "echo 'charaf2023' | git push -u origin jenkins-shared-lib"
         }
     }
 }
