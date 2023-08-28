@@ -35,7 +35,8 @@ class Docker implements Serializable {
         script.sh "echo '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' | git remote set-url origin https://${script.USER}@github.com/${script.USER}/${repo}.git"
         script.sh "git add ."
         script.sh "git commit -m 'ci:version bump'"
-        script.sh "echo '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' | git push origin HEAD:jenkins-shared-lib"
+        script.sh "git branch -a"
+//        script.sh "echo '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' | git push origin HEAD:jenkins-shared-lib"
         }
     }
 }
