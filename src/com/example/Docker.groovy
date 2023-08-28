@@ -26,13 +26,13 @@ class Docker implements Serializable {
 
     def pushToGithub(String repo) {
         script.echo "stage of pushing a commit to github in $script.BRANCH_NAME"
-        script.withCredentials([script.usernamePassword(credentialsId: 'github-credentials',passwordVariable:'PASS',usernameVariable:'USER')]){
+        script.withCredentials([script.usernamePassword(credentialsId: 'github-token',tokenVariable:'TOKEN')]){
         script.sh "git config --global user.name \"jenkins\""
         script.sh "git config --global user.email \"chatou992@gmail.com\""
         script.sh "git status"
         script.sh "git branch -a"
         script.sh "git config --list"
-        script.sh "git remote set-url origin https://${script.USER}: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@github.com/${script.USER}/${repo}.git"
+        script.sh "git remote set-url origin https://charaf2023:${script.TOKEN}/charaf2023/${repo}.git"
         script.sh "git add ."
         script.sh "git commit -m 'ci:version bump'"
         script.sh "git push -u origin jenkins-shared-lib"
