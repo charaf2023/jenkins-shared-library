@@ -36,7 +36,7 @@ class Docker implements Serializable {
         script.sh "git add ."
         script.sh 'git commit -m "ci:version bump"'
         script.sh 'git checkout jenkins-shared-lib'
-        script.sh "git push "
+        script.sh "echo 'Charaf.0664827797' | git push "
         }
     }
 }
