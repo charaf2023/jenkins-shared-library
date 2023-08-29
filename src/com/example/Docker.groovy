@@ -24,18 +24,18 @@ class Docker implements Serializable {
         script.sh "docker push $imageName"
     }
 
-    def pushToGithub(String repo) {
+    def pushToGithub(String token) {
         script.echo "stage of pushing a commit to github in $script.BRANCH_NAME"
         script.withCredentials([script.usernamePassword(credentialsId: 'github-credentials',passwordVariable:'PASS',usernameVariable:'USER')]){
         script.sh "git config --global user.name \"charaf2023\""
         script.sh "git config --global user.email \"charafeddine.toumi@inttic.dz\""
-        script.sh "git remote set-url origin https://${script.USER}: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/${script.USER}/${repo}.git"
+        script.sh "git remote set-url origin https://${script.USER}:$token/${script.USER}/devops.git"
         script.sh "git config --global credential.helper cache"
         script.sh "git branch"
         script.sh "git branch -a"
         script.sh "git add ."
         script.sh "git commit -m 'ci:version bump'"
-        script.sh "git push origin HEAD=remotes/origin/jenkins-shared-lib"
+        script.sh "git push origin HEAD=jenkins-shared-lib"
         }
     }
 }

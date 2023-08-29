@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
 import com.example.Docker
-def call(String repo) {
-    return new Docker(this).pushToGithub(repo)
+def call(String token) {
+    return new Docker(this).pushToGithub(token)
 }
