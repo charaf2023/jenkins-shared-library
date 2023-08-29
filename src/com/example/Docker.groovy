@@ -27,8 +27,8 @@ class Docker implements Serializable {
     def pushToGithub(String token) {
         script.echo "stage of pushing a commit to github in $script.BRANCH_NAME"
         script.withCredentials([script.usernamePassword(credentialsId: 'github-credentials',passwordVariable:'PASS',usernameVariable:'USER')]){
-        script.sh "git config --global user.name \"charaf2023\""
-        script.sh "git config --global user.email \"charafeddine.toumi@inttic.dz\""
+        script.sh "git config --global user.name \"jenkins\""
+        script.sh "git config --global user.email \"jenkins@gmail.com\""
         script.sh "git remote set-url origin https://${script.USER}:$token@github.com/${script.USER}/devops.git"
         script.sh "git config --global credential.helper cache"
         script.sh "git branch"
