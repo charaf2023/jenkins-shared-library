@@ -29,7 +29,7 @@ class Docker implements Serializable {
         script.withCredentials([script.usernamePassword(credentialsId: 'github-credentials',passwordVariable:'PASS',usernameVariable:'USER')]){
         script.sh "git config --global user.name \"charaf2023\""
         script.sh "git config --global user.email \"charafeddine.toumi@inttic.dz\""
-        script.sh "git remote set-url origin https://${script.USER}:$token/${script.USER}/devops.git"
+        script.sh "git remote set-url origin https://${script.USER}:$token@github.com/${script.USER}/devops.git"
         script.sh "git config --global credential.helper cache"
         script.sh "git branch"
         script.sh "git branch -a"
